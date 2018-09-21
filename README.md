@@ -1,6 +1,6 @@
 # Heart Disease Prediction System - AWS Lambda Function
 
-This lambda function is supposed to setup alongside with AWS S3 for storing trained model and Gateway API to expose a public REST API path. The function takes in 13 attributes and return a single integer value of either 0 or 1 as an output based on the possibility of having a heart disease.
+This lambda function is supposed to setup alongside with AWS S3 for storing trained model and API Gateway to expose a public REST API path. The function takes in 13 attributes and return a single integer value of either 0 or 1 as an output based on the possibility of having a heart disease.
 
 ### Trained Model
 
@@ -8,3 +8,6 @@ The model object is pickled as model_tuple.pkl from a Python tuple of `(scaler, 
 
 ### AWS Note
 Bucket should be named `heartdisease_bucket` and lambda function should be named `heartdisease`. `model_tuple.pkl` is the pickled trained model with scaler included and should be uploaded to `heartdisease_bucket` bucket with the same name.
+
+Lambda function should be triggered through API Gateway's `Post Method` and data should be posted in `JSON` format with the following attribute names.
+`age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal`
